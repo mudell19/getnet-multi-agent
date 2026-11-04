@@ -37,6 +37,8 @@ Rationale: sensitive data and obvious attacks are stopped without cost or model 
 - When retrieval similarity is below threshold or the answer cannot be grounded, the system MUST
   NOT guess. It MUST hand off to a Human Escalation Agent, which records a ticket and returns its
   id.
+- Exception: when an earlier step of the same request already produced an answer and a later step
+  cannot be grounded, the earlier answers MUST be kept and no handoff happens.
 
 Rationale: in a payments domain, a ticket is a better outcome than a plausible invented answer.
 
@@ -155,4 +157,4 @@ Rationale: every extra layer is code to review and maintain, with no requirement
   violation MUST be justified in the plan's Complexity Tracking table.
 - Each task MUST be checked against the applicable principles before its commit.
 
-**Version**: 1.0.0 | **Ratified**: 2026-11-04 | **Last Amended**: 2026-11-04
+**Version**: 1.1.0 | **Ratified**: 2026-11-04 | **Last Amended**: 2026-11-04
