@@ -53,8 +53,8 @@
 
 - [X] T018 Add `tests/unit/test_traceability.py` enforcing that every `R<n>` is in a test name, and cover remaining IDs (R16, R62, SC-008)
 - [X] T019 Write `README.md` with every section in R62
-- [ ] T020 Prove from a clean clone: `docker compose up --build --wait`, S1 to S10, pytest, `evals/run.py`, `docker build --platform linux/amd64`
-- [ ] T021 Commit `evals/report.md` and push
+- [X] T020 Prove from a clean clone: `docker compose up --build --wait`, S1 to S10, pytest, `evals/run.py`, `docker build --platform linux/amd64`
+- [X] T021 Commit `evals/report.md` and push
 
 ## Dependencies & Execution Order
 
