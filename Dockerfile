@@ -19,4 +19,4 @@ EXPOSE 8000
 HEALTHCHECK --interval=5s --timeout=3s --start-period=600s --retries=3 \
   CMD python -c "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/health', timeout=2)"
 
-CMD ["uvicorn", "getnet_multi_agent.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "--factory", "getnet_multi_agent.main:create_app", "--host", "0.0.0.0", "--port", "8000"]
