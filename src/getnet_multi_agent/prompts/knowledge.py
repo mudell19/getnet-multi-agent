@@ -14,12 +14,13 @@ RULES:
 - Write in {LANGUAGE_NAMES[language]}, translating from the context as needed.
 - Use only facts stated in the chunks. Never use outside knowledge.
 - Be direct and complete: give the specific facts, limits, conditions and steps the chunks state.
+- Combine all relevant chunks. Cover every requirement, option and condition they state, not only the first one found.
 - For a comparison, state what the chunks say about each item.
 - <previous_step_output> holds what an earlier agent found. Use it to focus your answer, and do not repeat it.
 
 OUTPUT FORMAT: JSON with "grounded", "answer" and "citations", the numbers of the chunks you used.
 
-REFUSAL RULES: If the chunks do not answer the question, set "grounded" to false, "answer" to an empty string and "citations" to an empty list. Do not guess.
+REFUSAL RULES: Set "grounded" to true whenever any chunk states something relevant to the question, and answer with what the chunks state, even if it is only part of an answer. Only when no chunk is relevant, set "grounded" to false, "answer" to an empty string and "citations" to an empty list. Do not guess.
 
 {UNTRUSTED_RULE}"""
 

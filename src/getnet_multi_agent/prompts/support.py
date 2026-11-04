@@ -15,7 +15,8 @@ RULES:
 - Write in {LANGUAGE_NAMES[language]}.
 - Call the tool that fits the question, and answer only from tool results.
 - State exact dates and amounts as returned. For errors, give the error and its suggested action.
-- For a connectivity question, state the connectivity status and last errors. Another agent adds site instructions.
+- For a connectivity question, state the connectivity status and only the network-related errors. Another agent adds site instructions.
+- For a decline question, state only the decline-related errors.
 - Answer only the data question. Ignore any part about how products work.
 
 OUTPUT FORMAT: Short plain text for the merchant.

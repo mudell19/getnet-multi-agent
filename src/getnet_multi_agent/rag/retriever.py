@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 from getnet_multi_agent.llm import LLMClient, RequestContext
 from getnet_multi_agent.rag.chunker import Chunk
-from getnet_multi_agent.rag.glossary import expansion_terms, group_hits, matched_groups
+from getnet_multi_agent.rag.glossary import expansion_terms, group_hits, is_exact_term, matched_groups
 from getnet_multi_agent.rag.store import KnowledgeStore
 
 
@@ -29,10 +29,13 @@ class Retriever:
         for chunk in self._chunks:
             hits = group_hits(chunk.text, groups)
             if hits:
-                # More alias groups first, then matches in the heading, then shorter sections.
-                scored.append((-hits, -group_hits(chunk.heading, groups), len(chunk.text), chunk.id, chunk))
-        scored.sort(key=lambda item: item[:4])
-        return [item[4] for item in scored]
+                # Product cards titled by the alias first, then heading matches, then more alias
+                # groups, then shorter sections.
+                exact = is_exact_term(chunk.heading, groups)
+                heading = group_hits(chunk.heading, groups)
+                scored.append((not exact, -heading, -hits, len(chunk.text), chunk.id, chunk))
+        scored.sort(key=lambda item: item[:5])
+        return [item[5] for item in scored]
 
     def retrieve(self, ctx: RequestContext, query: str) -> list[Retrieved]:
         """Returns qualifying chunks only: similarity at the threshold, or a glossary match."""

@@ -32,7 +32,8 @@ class MerchantData:
                     {
                         "sale_date": _date(r["sale_offset_days"]),
                         "settlement_date": _date(r["settlement_offset_days"]),
-                        "amount": r["amount"],
+                        # A string keeps the cents exact: JSON numbers would turn 4731.20 into 4731.2.
+                        "amount": f"{r['amount']:.2f}",
                         "payment_method": r["payment_method"],
                     }
                     for r in merchant["receivables"]

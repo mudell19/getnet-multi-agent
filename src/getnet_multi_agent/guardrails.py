@@ -40,7 +40,7 @@ PT_WORDS = set(
 EN_WORDS = set(
     "the a an of in on for with what how when which my me i you your is are do does did can will "
     "not yes and need want have has this that yesterday today sales machine money card hello "
-    "thanks".split()
+    "thanks please all ignore previous instructions from to".split()
 )
 
 REFUSALS = {
