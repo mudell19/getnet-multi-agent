@@ -61,7 +61,7 @@ writes tickets to JSONL.
 - **Glossary** adds `Get Smart`, Pix account terms and connectivity terms to the aliases in the spec, because S1, S4 and S5 need them.
 - **Global caveat and sources** are appended by code after Personality, in the user's language.
 - **Personality guard**: output with a digit sequence absent from the draft, or missing the ticket id, is rejected in favor of the draft.
-- **Atomic ingestion**: build `kb_building`, then delete `kb` and rename. A leftover `kb_building` is dropped at startup.
+- **Atomic ingestion**: build `knowledge_base_building`, then delete `knowledge_base` and rename. A leftover build is dropped at startup.
 - **Refresh** runs with the service stopped, because Chroma's persistent client is single-process.
 - **Merchant fixture** lives in the package because the `data/` volume would hide a file there.
 - **Dev container runs** bind-mount `./data` to reuse `data/crawl_cache`; compose uses a named volume.
