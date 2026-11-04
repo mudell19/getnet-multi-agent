@@ -140,7 +140,31 @@ The Knowledge Agent receives chunks inside delimiters marked as untrusted data, 
 - **Function calling (Support).** `get_receivables` returns settlement dates and amounts, and `get_terminal_status` returns connectivity, last errors and suggested actions. The first turn must call a tool, and `MAX_TOOL_ITERATIONS` bounds the loop. The complete model content, including thought signatures, goes back on the next turn.
 - **Google Search grounding (Knowledge, source `web`).** Used for general factual questions such as weather and exchange rates. It always runs in its own call, never together with function calling.
 - **`create_ticket` (Escalation).** Called by code, and appends to `data/tickets/tickets.jsonl` in the volume.
+- **MCP server (`get_receivables`, `get_terminal_status`).** The same two Support tools are available to any MCP client. See [MCP Server](#mcp-server).
 - **Tool results are untrusted.** They arrive in an `untrusted_data` field and are never treated as instructions. Tools return structured results and handle their own failures.
+
+## MCP Server
+
+An optional stdio server exposes the Support tools to MCP clients such as Claude Desktop. It is not part of the HTTP service and is not installed in the Docker image.
+
+```bash
+uv run --extra mcp python -m getnet_multi_agent.mcp_server --user-id cliente1988
+```
+
+Client configuration:
+
+```json
+{
+  "mcpServers": {
+    "getnet-support": {
+      "command": "uv",
+      "args": ["--directory", "/absolute/path/to/getnet-multi-agent", "run", "--extra", "mcp", "python", "-m", "getnet_multi_agent.mcp_server", "--user-id", "cliente1988"]
+    }
+  }
+}
+```
+
+The merchant is fixed when the server starts, and the tools have no `user_id` parameter, so a connected model cannot request another merchant's data. A `user_id` argument sent anyway is ignored. Each process serves one merchant, and this is not authentication: whoever launches the server chooses the merchant. Logs go to stderr because stdout carries the protocol.
 
 ## Testing Strategy
 
@@ -214,4 +238,4 @@ These dashboards and alerts are a proposal and are not implemented. Logs would s
 - The plan and tasks were generated inside the implementation step, each with its own commit before any code, because `/speckit-plan` was not run as a separate command.
 - Some commits group more than one task (T006-07, T014-16, T017-18, T020-21).
 - `user_id` is not masked: a card number sent in that field reaches logs, tickets and the Router prompt. Masking covers `message` only.
-- Next step: expose the Support tools through MCP.
+- The MCP server was added after the session, in its own commit. It does not change the API, the agents or the Docker image contents, and it is not covered by the session's evaluation report.
