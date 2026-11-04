@@ -16,13 +16,13 @@
 - [X] T003 Implement the LLM wrapper with cost, budget, timeout, retry and JSON logging in `src/getnet_multi_agent/llm.py`, `logging_setup.py`, with `tests/unit/test_llm.py` (R46, R47, R48, R49, R55)
 - [X] T004 Implement guardrails in `src/getnet_multi_agent/guardrails.py` with `tests/unit/test_guardrails.py` (R7, R8, R9, R10)
 - [X] T005 Implement schemas, API and health with deterministic refusals in `schemas.py`, `orchestrator.py`, `main.py`, with `tests/integration/test_api.py` (R1 to R6)
-- [ ] T006 Build the image and call `/chat` and `/health` in the container
+- [X] T006 Build the image and call `/chat` and `/health` in the container
 
 ## Phase 3: User Story 1 - Grounded answers (P1)
 
 **Independent test**: S1, S4, S6, S9, S10 return the expected route, fact and source.
 
-- [ ] T007 [US1] Implement the crawler in `src/getnet_multi_agent/rag/crawler.py` with `tests/unit/test_crawler.py`, then run the first crawl (R19 to R24)
+- [X] T007 [US1] Implement the crawler in `src/getnet_multi_agent/rag/crawler.py` with `tests/unit/test_crawler.py`, then run the first crawl (R19 to R24)
 - [ ] T008 [US1] Implement extraction and chunking in `rag/extract.py`, `rag/chunker.py` with `tests/unit/test_extract.py` (R25, R26)
 - [ ] T009 [US1] Implement glossary, store, retriever and ingestion in `rag/glossary.py`, `store.py`, `retriever.py`, `ingest.py` with `tests/unit/test_rag.py` (R27 to R30)
 - [ ] T010 [US1] Implement Router, Knowledge and Personality agents and prompts in `agents/`, `prompts/`, and wire them in `orchestrator.py`, with `tests/integration/test_orchestration.py` (R12 to R18, R31, R32, R33, R44, R50, R53)
