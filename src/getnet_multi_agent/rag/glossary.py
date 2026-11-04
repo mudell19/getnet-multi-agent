@@ -14,8 +14,9 @@ ALIAS_GROUPS: tuple[tuple[str, ...], ...] = (
     ("internet", "connect", "connection", "connectivity", "conexão", "conectividade", "chip", "teste de comunicação"),
 )
 
-# These trigger a group from a question, but match too much marketing text to rank chunks.
-QUERY_ONLY_TERMS = {"connect", "connection", "connectivity"}
+# These expand a question, but match too much unrelated text to rank chunks. "get conta" would
+# otherwise outrank the chunk stating the actual requirement for a receiving account.
+QUERY_ONLY_TERMS = {"connect", "connection", "connectivity", "get conta"}
 
 
 def fold(text: str) -> str:

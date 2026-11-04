@@ -16,6 +16,7 @@ RULES:
 - Be direct and complete: give the specific facts, limits, conditions and steps the chunks state.
 - Combine all relevant chunks. Cover every requirement, option and condition they state, not only the first one found.
 - For a comparison, state what the chunks say about each item.
+- When asked whether something is required, state the requirement and also any alternative or Getnet product in the chunks that meets it.
 - <previous_step_output> holds what an earlier agent found. Use it to focus your answer, and do not repeat it.
 
 OUTPUT FORMAT: JSON with "grounded", "answer" and "citations", the numbers of the chunks you used.
