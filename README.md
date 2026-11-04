@@ -207,3 +207,11 @@ These dashboards and alerts are a proposal and are not implemented. Logs would s
 - Refresh requires stopping the service. A partial knowledge base counts as ready.
 - Embedding tokens are estimated, because the embedding response has no usage data.
 - Sites are read as static HTML, so content rendered only by JavaScript is not ingested.
+
+## Session Notes
+
+- Built in one session: first push 14:09:25, last push 15:05:25 (UTC-3), tagged `sessao-60min`. Later commits only add these notes and the session transcript.
+- The plan and tasks were generated inside the implementation step, each with its own commit before any code, because `/speckit-plan` was not run as a separate command.
+- Some commits group more than one task (T006-07, T014-16, T017-18, T020-21).
+- `user_id` is not masked: a card number sent in that field reaches logs, tickets and the Router prompt. Masking covers `message` only.
+- Next step: expose the Support tools through MCP.
