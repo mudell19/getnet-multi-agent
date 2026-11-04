@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        APP_REV: ${APP_REV:-dev}
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - app_data:/app/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  app_data:

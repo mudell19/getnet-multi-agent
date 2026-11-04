@@ -8,8 +8,8 @@
 
 ## Phase 1: Setup
 
-- [ ] T001 Add dependencies, lockfile, `.env.example`, `.dockerignore` and `src/getnet_multi_agent/config.py` (R45, R51, R60)
-- [ ] T002 Add `Dockerfile` and `docker-compose.yml` with digest-pinned base image, locked install, health check, log limit and `data` volume (R61)
+- [X] T001 Add dependencies, lockfile, `.env.example`, `.dockerignore` and `src/getnet_multi_agent/config.py` (R45, R51, R60)
+- [X] T002 Add `Dockerfile` and `docker-compose.yml` with digest-pinned base image, locked install, health check, log limit and `data` volume (R61)
 
 ## Phase 2: Foundational
 
