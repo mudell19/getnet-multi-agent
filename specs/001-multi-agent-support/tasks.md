@@ -47,11 +47,11 @@
 - [X] T014 [US3] Add multi-step tests for S5, the compound message and partial answers in `tests/integration/test_orchestration.py` (R15, R42, R59)
 - [X] T015 [US4] Add web step tests in `tests/integration/test_orchestration.py` (R33, R49)
 - [X] T016 [US5] Add adversarial tests in `tests/integration/test_orchestration.py` (R8, R10, R11, R38, R53)
-- [ ] T017 [US7] Run S1 to S10 in the container and fix routing, retrieval and prompts until each passes, checking RAG facts in context and answer
+- [X] T017 [US7] Run S1 to S10 in the container and fix routing, retrieval and prompts until each passes, checking RAG facts in context and answer
 
 ## Phase 7: Polish
 
-- [ ] T018 Add `tests/unit/test_traceability.py` enforcing that every `R<n>` is in a test name, and cover remaining IDs (R16, R62, SC-008)
+- [X] T018 Add `tests/unit/test_traceability.py` enforcing that every `R<n>` is in a test name, and cover remaining IDs (R16, R62, SC-008)
 - [ ] T019 Write `README.md` with every section in R62
 - [ ] T020 Prove from a clean clone: `docker compose up --build --wait`, S1 to S10, pytest, `evals/run.py`, `docker build --platform linux/amd64`
 - [ ] T021 Commit `evals/report.md` and push
