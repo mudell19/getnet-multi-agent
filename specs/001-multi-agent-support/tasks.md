@@ -23,7 +23,7 @@
 **Independent test**: S1, S4, S6, S9, S10 return the expected route, fact and source.
 
 - [X] T007 [US1] Implement the crawler in `src/getnet_multi_agent/rag/crawler.py` with `tests/unit/test_crawler.py`, then run the first crawl (R19 to R24)
-- [ ] T008 [US1] Implement extraction and chunking in `rag/extract.py`, `rag/chunker.py` with `tests/unit/test_extract.py` (R25, R26)
+- [X] T008 [US1] Implement extraction and chunking in `rag/extract.py`, `rag/chunker.py` with `tests/unit/test_extract.py` (R25, R26)
 - [ ] T009 [US1] Implement glossary, store, retriever and ingestion in `rag/glossary.py`, `store.py`, `retriever.py`, `ingest.py` with `tests/unit/test_rag.py` (R27 to R30)
 - [ ] T010 [US1] Implement Router, Knowledge and Personality agents and prompts in `agents/`, `prompts/`, and wire them in `orchestrator.py`, with `tests/integration/test_orchestration.py` (R12 to R18, R31, R32, R33, R44, R50, R53)
 - [ ] T011 [US1] Implement the evaluation runner and dataset in `evals/run.py`, `evals/dataset.jsonl` with `tests/unit/test_evals.py` (R56, R57, R58)
