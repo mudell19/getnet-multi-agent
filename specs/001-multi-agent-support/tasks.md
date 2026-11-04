@@ -13,7 +13,7 @@
 
 ## Phase 2: Foundational
 
-- [ ] T003 Implement the LLM wrapper with cost, budget, timeout, retry and JSON logging in `src/getnet_multi_agent/llm.py`, `logging_setup.py`, with `tests/unit/test_llm.py` (R46, R47, R48, R49, R55)
+- [X] T003 Implement the LLM wrapper with cost, budget, timeout, retry and JSON logging in `src/getnet_multi_agent/llm.py`, `logging_setup.py`, with `tests/unit/test_llm.py` (R46, R47, R48, R49, R55)
 - [ ] T004 Implement guardrails in `src/getnet_multi_agent/guardrails.py` with `tests/unit/test_guardrails.py` (R7, R8, R9, R10)
 - [ ] T005 Implement schemas, API and health with deterministic refusals in `schemas.py`, `orchestrator.py`, `main.py`, with `tests/integration/test_api.py` (R1 to R6)
 - [ ] T006 Build the image and call `/chat` and `/health` in the container
