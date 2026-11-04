@@ -44,9 +44,9 @@
 
 **Independent test**: the ten scenarios and adversarial cases pass in the container.
 
-- [ ] T014 [US3] Add multi-step tests for S5, the compound message and partial answers in `tests/integration/test_orchestration.py` (R15, R42, R59)
-- [ ] T015 [US4] Add web step tests in `tests/integration/test_orchestration.py` (R33, R49)
-- [ ] T016 [US5] Add adversarial tests in `tests/integration/test_orchestration.py` (R8, R10, R11, R38, R53)
+- [X] T014 [US3] Add multi-step tests for S5, the compound message and partial answers in `tests/integration/test_orchestration.py` (R15, R42, R59)
+- [X] T015 [US4] Add web step tests in `tests/integration/test_orchestration.py` (R33, R49)
+- [X] T016 [US5] Add adversarial tests in `tests/integration/test_orchestration.py` (R8, R10, R11, R38, R53)
 - [ ] T017 [US7] Run S1 to S10 in the container and fix routing, retrieval and prompts until each passes, checking RAG facts in context and answer
 
 ## Phase 7: Polish
