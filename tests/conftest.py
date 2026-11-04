@@ -1,3 +1,4 @@
+from types import SimpleNamespace as NS
 import os
 from pathlib import Path
 
@@ -26,3 +27,30 @@ def settings(tmp_path: Path) -> Settings:
         data_dir=tmp_path,
         app_rev="test",
     )
+
+
+class StubLLM:
+    """Replaces the wrapper: scripted output per agent, recording every call."""
+
+    def __init__(self, settings, script=None):
+        self.settings = settings
+        self.script = script or {}
+        self.calls = []
+
+    def generate(self, ctx, agent, role, contents, system=None, tools=None, tool_config=None, response_schema=None):
+        from getnet_multi_agent.llm import CallRecord, LLMResult
+
+        self.calls.append(NS(agent=agent, role=role, contents=contents, system=system, tools=tools, ctx=ctx))
+        queue = self.script.get(agent)
+        if not queue:
+            raise AssertionError(f"Unexpected LLM call for {agent}")
+        item = queue.pop(0) if len(queue) > 1 else queue[0]
+        if isinstance(item, Exception):
+            raise item
+        ctx.records.append(CallRecord(agent=agent, model=role.model, latency_ms=1, prompt_tokens=10, output_tokens=5, cost_usd=0.001))
+        if isinstance(item, LLMResult):
+            return item
+        return LLMResult(text=item)
+
+    def agents_called(self):
+        return [c.agent for c in self.calls]

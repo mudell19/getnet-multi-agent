@@ -3,11 +3,18 @@ from fastapi.testclient import TestClient
 
 from getnet_multi_agent.main import create_app
 from getnet_multi_agent.orchestrator import Orchestrator
+from getnet_multi_agent.tools.merchant import MerchantData
+from getnet_multi_agent.tools.tickets import TicketStore
 
 
 @pytest.fixture
-def client(settings):
-    return TestClient(create_app(Orchestrator(settings), is_ready=lambda: True))
+def orchestrator(settings):
+    return Orchestrator(settings, None, None, MerchantData(), TicketStore(settings.data_dir / "t.jsonl"))
+
+
+@pytest.fixture
+def client(orchestrator):
+    return TestClient(create_app(orchestrator, is_ready=lambda: True))
 
 
 LONG = "x" * 2001
@@ -46,9 +53,9 @@ def test_R3_malformed_body_is_json_and_does_not_echo_input(client):
     assert r.status_code == 422 and "4111" not in r.text
 
 
-def test_R5_health_reports_readiness(settings):
+def test_R5_health_reports_readiness(orchestrator):
     state = {"ready": False}
-    client = TestClient(create_app(Orchestrator(settings), is_ready=lambda: state["ready"]))
+    client = TestClient(create_app(orchestrator, is_ready=lambda: state["ready"]))
     assert client.get("/health").status_code == 503
     state["ready"] = True
     r = client.get("/health")

@@ -25,20 +25,20 @@
 - [X] T007 [US1] Implement the crawler in `src/getnet_multi_agent/rag/crawler.py` with `tests/unit/test_crawler.py`, then run the first crawl (R19 to R24)
 - [X] T008 [US1] Implement extraction and chunking in `rag/extract.py`, `rag/chunker.py` with `tests/unit/test_extract.py` (R25, R26)
 - [X] T009 [US1] Implement glossary, store, retriever and ingestion in `rag/glossary.py`, `store.py`, `retriever.py`, `ingest.py` with `tests/unit/test_rag.py` (R27 to R30)
-- [ ] T010 [US1] Implement Router, Knowledge and Personality agents and prompts in `agents/`, `prompts/`, and wire them in `orchestrator.py`, with `tests/integration/test_orchestration.py` (R12 to R18, R31, R32, R33, R44, R50, R53)
-- [ ] T011 [US1] Implement the evaluation runner and dataset in `evals/run.py`, `evals/dataset.jsonl` with `tests/unit/test_evals.py` (R56, R57, R58)
+- [X] T010 [US1] Implement Router, Knowledge and Personality agents and prompts in `agents/`, `prompts/`, and wire them in `orchestrator.py`, with `tests/integration/test_orchestration.py` (R12 to R18, R31, R32, R33, R44, R50, R53)
+- [X] T011 [US1] Implement the evaluation runner and dataset in `evals/run.py`, `evals/dataset.jsonl` with `tests/unit/test_evals.py` (R56, R57, R58)
 
 ## Phase 4: User Story 2 - Merchant support (P1)
 
 **Independent test**: S3 and S8 match the simulated data for each merchant; an unknown id gets not-found.
 
-- [ ] T012 [US2] Implement merchant fixture, tools and Support agent in `fixtures/merchants.json`, `tools/merchant.py`, `agents/support.py`, `prompts/support.py` with tests (R34 to R38, R52, R54)
+- [X] T012 [US2] Implement merchant fixture, tools and Support agent in `fixtures/merchants.json`, `tools/merchant.py`, `agents/support.py`, `prompts/support.py` with tests (R34 to R38, R52, R54)
 
 ## Phase 5: User Story 6 - Human escalation (P2)
 
 **Independent test**: each trigger returns a `ticket_id` with a matching record.
 
-- [ ] T013 [US6] Implement tickets and escalation in `tools/tickets.py`, `agents/escalation.py` and failure paths in `orchestrator.py` with tests (R39 to R43, R55)
+- [X] T013 [US6] Implement tickets and escalation in `tools/tickets.py`, `agents/escalation.py` and failure paths in `orchestrator.py` with tests (R39 to R43, R55)
 
 ## Phase 6: User Stories 3, 4, 5 and 7 - Acceptance in the container
 
